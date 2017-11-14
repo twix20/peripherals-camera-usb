@@ -9,9 +9,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace APIDelegate
+namespace MyCamera
 {
-    public class APIDelegate
+    public static class APIDelegate
     {
         public const short WM_CAP = 0x400;
         public const int WM_CAP_DRIVER_CONNECT = 0x40a;
@@ -28,7 +28,6 @@ namespace APIDelegate
         public const int WM_CAP_DLG_VIDEOSOURCE = WM_CAP + 42;
         public const int WM_CAP_SEQUENCE = WM_CAP + 62;
         public const int WM_CAP_STOP = WM_CAP + 68;
-
 
         public const int WS_CHILD = 0x40000000;
         public const int WS_VISIBLE = 0x10000000;
@@ -59,7 +58,7 @@ namespace APIDelegate
            int nID
         );
 
-        [DllImport("user32")]
+        [DllImport("user32.dll")]
         public static extern bool SetWindowPos(
           int hWnd,
           int hWndInsertAfter,
@@ -70,7 +69,7 @@ namespace APIDelegate
           int uFlags
         );
 
-        [DllImport("user32")]
+        [DllImport("user32.dll")]
         public static extern int SendMessage(
           int hWnd,
           int Msg,
@@ -78,7 +77,7 @@ namespace APIDelegate
           string lParam
         );
 
-        [DllImport("user32")]
+        [DllImport("user32.dll")]
         public static extern bool DestroyWindow(int hwnd);
     }
 }

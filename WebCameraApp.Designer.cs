@@ -43,26 +43,29 @@
             // 
             this.pbView.BackColor = System.Drawing.SystemColors.ControlDark;
             this.pbView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbView.Location = new System.Drawing.Point(12, 12);
+            this.pbView.Location = new System.Drawing.Point(9, 10);
+            this.pbView.Margin = new System.Windows.Forms.Padding(2);
             this.pbView.Name = "pbView";
-            this.pbView.Size = new System.Drawing.Size(519, 478);
+            this.pbView.Size = new System.Drawing.Size(390, 389);
             this.pbView.TabIndex = 0;
             this.pbView.TabStop = false;
             // 
             // cbDevices
             // 
             this.cbDevices.FormattingEnabled = true;
-            this.cbDevices.Location = new System.Drawing.Point(12, 496);
+            this.cbDevices.Location = new System.Drawing.Point(9, 403);
+            this.cbDevices.Margin = new System.Windows.Forms.Padding(2);
             this.cbDevices.Name = "cbDevices";
-            this.cbDevices.Size = new System.Drawing.Size(519, 24);
+            this.cbDevices.Size = new System.Drawing.Size(390, 21);
             this.cbDevices.TabIndex = 1;
             this.cbDevices.SelectedIndexChanged += new System.EventHandler(this.cbDevices_SelectedIndexChanged);
             // 
             // btnVideoFormat
             // 
-            this.btnVideoFormat.Location = new System.Drawing.Point(537, 12);
+            this.btnVideoFormat.Location = new System.Drawing.Point(403, 10);
+            this.btnVideoFormat.Margin = new System.Windows.Forms.Padding(2);
             this.btnVideoFormat.Name = "btnVideoFormat";
-            this.btnVideoFormat.Size = new System.Drawing.Size(110, 47);
+            this.btnVideoFormat.Size = new System.Drawing.Size(82, 38);
             this.btnVideoFormat.TabIndex = 2;
             this.btnVideoFormat.Text = "Video Format";
             this.btnVideoFormat.UseVisualStyleBackColor = true;
@@ -70,9 +73,10 @@
             // 
             // btnVideoSource
             // 
-            this.btnVideoSource.Location = new System.Drawing.Point(537, 65);
+            this.btnVideoSource.Location = new System.Drawing.Point(403, 53);
+            this.btnVideoSource.Margin = new System.Windows.Forms.Padding(2);
             this.btnVideoSource.Name = "btnVideoSource";
-            this.btnVideoSource.Size = new System.Drawing.Size(110, 47);
+            this.btnVideoSource.Size = new System.Drawing.Size(82, 38);
             this.btnVideoSource.TabIndex = 3;
             this.btnVideoSource.Text = "Video Source";
             this.btnVideoSource.UseVisualStyleBackColor = true;
@@ -82,40 +86,45 @@
             // 
             this.btnCapturePhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCapturePhoto.BackgroundImage")));
             this.btnCapturePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCapturePhoto.Location = new System.Drawing.Point(552, 130);
+            this.btnCapturePhoto.Location = new System.Drawing.Point(414, 106);
+            this.btnCapturePhoto.Margin = new System.Windows.Forms.Padding(2);
             this.btnCapturePhoto.Name = "btnCapturePhoto";
-            this.btnCapturePhoto.Size = new System.Drawing.Size(78, 72);
+            this.btnCapturePhoto.Size = new System.Drawing.Size(58, 58);
             this.btnCapturePhoto.TabIndex = 4;
             this.btnCapturePhoto.UseVisualStyleBackColor = true;
             this.btnCapturePhoto.Click += new System.EventHandler(this.btnCapturePhoto_Click);
             // 
             // btnVideoCapture
             // 
+            this.btnVideoCapture.BackColor = System.Drawing.Color.Red;
             this.btnVideoCapture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVideoCapture.BackgroundImage")));
             this.btnVideoCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnVideoCapture.Location = new System.Drawing.Point(552, 208);
+            this.btnVideoCapture.Location = new System.Drawing.Point(414, 169);
+            this.btnVideoCapture.Margin = new System.Windows.Forms.Padding(2);
             this.btnVideoCapture.Name = "btnVideoCapture";
-            this.btnVideoCapture.Size = new System.Drawing.Size(78, 72);
+            this.btnVideoCapture.Size = new System.Drawing.Size(58, 58);
             this.btnVideoCapture.TabIndex = 5;
-            this.btnVideoCapture.UseVisualStyleBackColor = true;
+            this.btnVideoCapture.UseVisualStyleBackColor = false;
             this.btnVideoCapture.Click += new System.EventHandler(this.btnVideoCapture_Click);
             // 
             // btnWww
             // 
+            this.btnWww.BackColor = System.Drawing.Color.Red;
             this.btnWww.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnWww.BackgroundImage")));
             this.btnWww.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnWww.Location = new System.Drawing.Point(552, 286);
+            this.btnWww.Location = new System.Drawing.Point(414, 232);
+            this.btnWww.Margin = new System.Windows.Forms.Padding(2);
             this.btnWww.Name = "btnWww";
-            this.btnWww.Size = new System.Drawing.Size(78, 72);
+            this.btnWww.Size = new System.Drawing.Size(58, 58);
             this.btnWww.TabIndex = 6;
-            this.btnWww.UseVisualStyleBackColor = true;
+            this.btnWww.UseVisualStyleBackColor = false;
             this.btnWww.Click += new System.EventHandler(this.btnWww_Click);
             // 
             // WebCameraApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 532);
+            this.ClientSize = new System.Drawing.Size(492, 432);
             this.Controls.Add(this.btnWww);
             this.Controls.Add(this.btnVideoCapture);
             this.Controls.Add(this.btnCapturePhoto);
@@ -123,6 +132,8 @@
             this.Controls.Add(this.btnVideoFormat);
             this.Controls.Add(this.cbDevices);
             this.Controls.Add(this.pbView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "WebCameraApp";
             this.Text = "WebCameraApp";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WebCameraApp_FormClosing);
