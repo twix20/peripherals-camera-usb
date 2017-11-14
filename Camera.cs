@@ -11,7 +11,6 @@ namespace MyCamera
         public int PreviewHandle { get; set; }
 
         public bool IsRecording { get; set; }
-        private CancellationTokenSource tokenSource;
 
         public Camera(int id)
         {
@@ -46,46 +45,20 @@ namespace MyCamera
         {
             Console.WriteLine("Started recording");
 
-            tokenSource = new CancellationTokenSource();
-            var recordingCt = tokenSource.Token;
-
-            var t = new Thread(new ThreadStart(() =>
-            {
-                MessageBox.Show("Thread wystartowal");
-
-                while (!recordingCt.IsCancellationRequested)
-                {
-                    APIDelegate.SendMessage(PreviewHandle, APIDelegate.WM_CAP_FILE_SET_CAPTURE_FILE, this.DeviceId, fileName);
-                    APIDelegate.SendMessage(PreviewHandle, APIDelegate.WM_CAP_SEQUENCE, this.DeviceId, null);
-                }
-
-                MessageBox.Show("Thread sie zakonczyl");
-            }))
-            {
-                IsBackground = true
-            };
-            t.Start();
-
-            //Task.Factory.StartNew(() =>
-            //{
-            //    while (!recordingCt.IsCancellationRequested)
-            //    {
-            //        APIDelegate.SendMessage(PreviewHandle, APIDelegate.WM_CAP_FILE_SET_CAPTURE_FILE, this.DeviceId, fileName);
-            //        APIDelegate.SendMessage(PreviewHandle, APIDelegate.WM_CAP_SEQUENCE, this.DeviceId, null);
-            //    }
-            //}, recordingCt);
-
             IsRecording = true;
+
+            Task.Factory.StartNew(() =>
+            {
+                APIDelegate.SendMessage(PreviewHandle, APIDelegate.WM_CAP_FILE_SET_CAPTURE_FILE, this.DeviceId, fileName);
+            }, TaskCreationOptions.LongRunning);
         }
         public void StopRecordingVideo(string fileName)
         {
             Console.WriteLine("Stopped recording");
-            tokenSource.Cancel();
+            IsRecording = false;
 
             APIDelegate.SendMessage(PreviewHandle, APIDelegate.WM_CAP_FILE_SAVEAS, this.DeviceId, fileName);
             APIDelegate.SendMessage(PreviewHandle, APIDelegate.WM_CAP_STOP, this.DeviceId, null);
-
-            IsRecording = false;
         }
 
         public void CapturePhoto(string fileName)
